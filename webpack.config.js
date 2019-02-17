@@ -4,10 +4,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const FontminPlugin = require("fontmin-webpack");
-const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
-
-const SvgStorePlugin = require('webpack-external-svg-sprite');
+const SvgSpriteHtmlWebpackPlugin = require('svg-sprite-html-webpack')
 
 module.exports = {
   module: {
@@ -49,7 +46,8 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader'
+        exclude: /node_modules/,
+        use: SvgSpriteHtmlWebpackPlugin.getLoader(),
       },
       {
         test: /\.(woff|woff2|eot|otf|ttf)$/i,
@@ -63,7 +61,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(gif|png|jpe?g)$/i,
+        test: /\.(gif|png|jpe?g|icon)$/i,
         use: [
           {
             loader: "file-loader",
@@ -101,6 +99,11 @@ module.exports = {
       template: "./src/index.pug",
       filename: "./index.html"
     }),
+    new SvgSpriteHtmlWebpackPlugin({
+      includeFiles: [
+        'src/img/svg/*.svg',
+      ],
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].css"
     }),
@@ -113,18 +116,5 @@ module.exports = {
       }
     }),
     new FontminPlugin({}),
-
-    // svg sprites
-
-    // new SvgStorePlugin({
-    //   emit: true,
-    //   directory: path.resolve(__dirname, 'src/img/svg/'),
-    //   name: 'img/svg/sprite.svg',
-    //   prefix: 'icon-',
-    //   suffix: '',
-    //   svgoOptions: {
-    //     plugins: []
-    //   }
-    // })
   ]
 };

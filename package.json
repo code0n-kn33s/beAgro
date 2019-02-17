@@ -29,9 +29,9 @@
     "postcss-loader": "^3.0.0",
     "pug-html-loader": "^1.1.5",
     "sass-loader": "^7.0.2",
+    "svg-sprite-html-webpack": "^2.1.2",
     "webpack": "^4.10.2",
     "webpack-cli": "^3.0.1",
-    "webpack-dev-server": "^3.1.4",
-    "webpack-external-svg-sprite": "^1.0.0"
+    "webpack-dev-server": "^3.1.4"
   }
 }
