@@ -1,12 +1,33 @@
 .header
-  .header-logo
-    img(src="./img/logo.png")
-  .header-menu
-    .header-menu-item
-      a(href="#") Main
-    .header-menu-item
-      a(href="#") News
-    .header-menu-item
-      a(href="#") Contacts
-  .header-toolbar
-    .header-toolbar-soc
+  .header-top
+    .header-top-toolbar
+      .header-top-logo.icon
+        img(src="./img/logo.png")
+      a.icon.icon-facebook
+        svg
+          use(xlink:href="#icon-FB_")
+    .header-top-menu
+      .header-top-menu-item
+        a(href="#") О Нас
+      .header-top-menu-item
+        a(href="#") Продукция
+      .header-top-menu-item
+        a(href="#") Использование
+      .header-top-menu-item
+        a(href="#") Преимущества
+      .header-top-menu-item
+        a(href="#") Производство
+      .header-top-menu-item
+        a(href="#") Контакты
+    .header-top-lang
+      select(size="3" name="hero")
+        option(disabled) Выберите героя
+        option(value="t1" selected) Чебурашка
+
+  .header-bottom
+    .header-bottom-title
+      | <b>Минераловатный субстрат</b><br>
+      | для гидропонного выращивания
+      | овощных и цветочных культур
+    .header-bottom-detailed
+      | Подбробнее

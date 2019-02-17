@@ -7,6 +7,8 @@ const FontminPlugin = require("fontmin-webpack");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 
+const SvgStorePlugin = require('webpack-external-svg-sprite');
+
 module.exports = {
   module: {
     rules: [
@@ -74,14 +76,14 @@ module.exports = {
             options: {
               mozjpeg: {
                 progressive: true,
-                quality: 65
+                quality: 90
               },
               optipng: {
-                optimizationLevel: 7
+                optimizationLevel: 9
               },
               pngquant: {
-                quality: "65-90",
-                speed: 4
+                quality: "90",
+                speed: 9
               },
               gifsicle: {
                 interlaced: false
@@ -110,9 +112,19 @@ module.exports = {
         ]
       }
     }),
-    new FontminPlugin({
-      autodetect: true,
-      glyphs: ['\uf0c8', '\uf0c7', '\uf0ce'],
-    })
+    new FontminPlugin({}),
+
+    // svg sprites
+
+    // new SvgStorePlugin({
+    //   emit: true,
+    //   directory: path.resolve(__dirname, 'src/img/svg/'),
+    //   name: 'img/svg/sprite.svg',
+    //   prefix: 'icon-',
+    //   suffix: '',
+    //   svgoOptions: {
+    //     plugins: []
+    //   }
+    // })
   ]
 };

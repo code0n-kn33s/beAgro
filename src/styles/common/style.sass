@@ -1,12 +1,25 @@
 .header
+  background-image: url('../img/lou-liebau-381370-unsplash.png')
+
+.header-top
   display: flex
   justify-content: space-between
-  background-color: aqua
+  align-items: center
   padding: 10px 20px
   margin-bottom: 20px
-.header-menu
-  display: flex
-  align-items: center
+  &-toolbar
+
+  &-logo
+    width: 99px
+    height: 54px
+    margin-right: 30px
+  &-menu
+    display: flex
+    &-item
+      margin-right: 45px
+      a
+        color: white
+        font-weight: 300
   &-item
     justify-content: space-around
     margin-right: 20px
@@ -16,3 +29,11 @@
     a
       color: #fff
       font-weight: bold
+
+.header-bottom
+  color: white
+  &-title
+
+.icon-facebook
+  height: 30px
+  width: 30px

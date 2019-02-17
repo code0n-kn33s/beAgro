@@ -4,7 +4,7 @@ html, body
 
 body
   font-size: $fontSize
-  font-family: $font, sans-serif
+  font-family: 'Monserrat'
   color: $c-primary
   @include laptop
     font-size: 15px
@@ -16,9 +16,17 @@ body
 .container
   width: $container-width
   margin: auto
-
+  @include laptop
+    width: 980px
+  @include tablet
+    width: 768px
+  @include mobile
+    width: 480px
 .icon
   display: inline-block
-  height: 100%
-  width: 100%
   user-select: none
+  svg, img
+    height: 100%
+    width: 100%
+.sprites
+  display: none
