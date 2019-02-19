@@ -1,12 +1,16 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const FontminPlugin = require("fontmin-webpack");
+const path = require("path")
+const webpack = require("webpack")
+const HtmlWebPackPlugin = require("html-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const CleanWebpackPlugin = require("clean-webpack-plugin")
 const SvgSpriteHtmlWebpackPlugin = require('svg-sprite-html-webpack')
 
 module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: './[name].js'
+  },
   module: {
     rules: [
       {
@@ -26,22 +30,22 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-            MiniCssExtractPlugin.loader,
-            {
-              loader: "css-loader",
-              options: { sourceMap: true }
-            },
-            {
-              loader: "postcss-loader",
-              options: {
-                sourceMap: true,
-                config: { path: 'postcss.config.js'}
-              }
-            },
-            {
-              loader: "sass-loader",
-              options: { sourceMap: true }
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: { sourceMap: true }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+              config: { path: 'postcss.config.js' }
             }
+          },
+          {
+            loader: "sass-loader",
+            options: { sourceMap: true }
+          }
         ]
       },
       {
@@ -72,6 +76,7 @@ module.exports = {
           {
             loader: "image-webpack-loader",
             options: {
+              disable: process.env.NODE_ENV ? false : true,
               mozjpeg: {
                 progressive: true,
                 quality: 90
@@ -93,8 +98,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
     new CleanWebpackPlugin('dist', {}),
-
     new HtmlWebPackPlugin({
       template: "./src/index.pug",
       filename: "./index.html"
@@ -106,7 +113,12 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css"
-    }),
+    })
+  ]
+}
+
+if (process.env.NODE_ENV) {
+  module.exports.plugins.push(
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: [
@@ -114,7 +126,6 @@ module.exports = {
           require('cssnano')
         ]
       }
-    }),
-    new FontminPlugin({}),
-  ]
-};
+    })
+  )
+}

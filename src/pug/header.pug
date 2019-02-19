@@ -1,32 +1,32 @@
-.header
-  .header-top
-    .header-top-toolbar
-      .header-top-logo.icon
-        img(src="./img/logo.png")
-      a.icon.icon-facebook
-        svg(style="fill")
-          use(xlink:href="#FB_")
-    .header-top-menu
-      .header-top-menu-item
-        a(href="#") О Нас
-      .header-top-menu-item
-        a(href="#") Продукция
-      .header-top-menu-item
-        a(href="#") Использование
-      .header-top-menu-item
-        a(href="#") Преимущества
-      .header-top-menu-item
-        a(href="#") Производство
-      .header-top-menu-item
-        a(href="#") Контакты
-    .header-top-lang
+.header-top
+  .header-top-toolbar
+    .header-top-logo.icon
+      img(src="./img/logo.png")
+    a.icon.icon-facebook
+      svg(style="fill")
+        use(xlink:href="#FB_")
+  .header-top-menu
+    .header-top-menu-item
+      a(href="#") О Нас
+    .header-top-menu-item
+      a(href="#") Продукция
+    .header-top-menu-item
+      a(href="#") Использование
+    .header-top-menu-item
+      a(href="#") Преимущества
+    .header-top-menu-item
+      a(href="#") Производство
+    .header-top-menu-item
+      a(href="#") Контакты
+    .header-top-lang.custom-select
       select(size="3" name="hero")
-        option(disabled) Выберите героя
-        option(value="t1" selected) Чебурашка
-  .header-bottom
-    .header-bottom-title
-      | <b>Минераловатный субстрат</b><br>
-      | для гидропонного выращивания
-      | овощных и цветочных культур
-    .header-bottom-detailed
-      | Подбробнее
+        option(value="ru" selected) RU
+        option(value="ua") UA
+        option(value="en") EN
+.header-bottom
+  .header-bottom-title
+    | <b>Минераловатный субстрат</b><br>
+    | для гидропонного выращивания <br>
+    | овощных и цветочных культур
+  button.button.header-bottom-detailed
+    | Подбробнее

@@ -2,9 +2,10 @@ extends ./pug/head
 block title
 	| Index page
 block contents
-	include ./pug/header
-	section.aboutus
-		.container
+	.header
+		include ./pug/header
+	.about
+		include ./pug/about
 	section.product
 		.container
 	section.applying
