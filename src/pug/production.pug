@@ -1,0 +1,12 @@
+.container
+  .production-title.title
+    | Этапы производства
+  .production-list
+    - var cards = ['Получение силикатного расплава', 'Получение волокна из расплава', 'Подготовка и подача связуещго раствора', 'Порезка продукции', 'Упаковка ваты']
+    each card, index in cards
+      .production-item
+        .production-item-description
+          .production-item-id= (index + 1)
+          .production-item-text= card
+        .production-item-img
+          img(src=`./img/prod-${index + 1}.png`, alt="")

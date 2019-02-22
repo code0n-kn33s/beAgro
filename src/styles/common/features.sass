@@ -1,0 +1,39 @@
+.features
+  background-image: url('./img/Rectangle 16.png')
+  background-size: cover
+  margin-top: 50px
+  padding-bottom: 103px
+  &-title
+    padding: 63px 0 53px
+    text-align: center
+    font-weight: 500
+    font-size: 50px
+    color: #fff
+  &-list
+    display: flex
+    justify-content: space-between
+    @include laptop
+      flex-direction: column
+  &-item
+    min-height: 387px
+    width: 32%
+    padding: 35px 15px 15px
+    text-align: center
+    border: 1px solid #fff
+    @include laptop
+      width: 100%
+      margin-bottom: 20px
+    &-title
+      font-weight: 700
+      font-size: rem(18)
+      color: #fff
+      margin: 26px 0 18px
+      @include laptop
+        font-size: 25px
+    &-text
+      color: #fff
+      font-size: rem(15)
+      font-weight: 400
+      @include laptop
+        font-size: 21px
+

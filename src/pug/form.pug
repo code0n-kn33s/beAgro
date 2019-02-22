@@ -1,0 +1,24 @@
+div.form-group
+  div.form-title.title
+    | Форма обратной связи
+  div.form-description.
+    Заполните поля, чтобы мы могли связаться с Вами, и выполнить Вашу заявку как можно быстрее.
+
+  form(action="")
+    div(class="controls" )
+      input(type="text" id="name" class="floatLabel" name="name" )
+      label(for="name") Ваше имя *
+    div(class="controls" )
+      input(type="tel" id="phone" class="floatLabel" name="phone" )
+      label(for="phone") Ваш телефон *
+    div(class="controls" )
+      input(type="text" id="email" class="floatLabel" name="email" )
+      label(for="email") Ваш email *
+    div(class="controls" )
+      input(type="text" id="location" class="floatLabel" name="location" )
+      label(for="location") Местонахождение *
+    div(class="controls" )
+      textarea(name="comments" class="floatLabel" id="comments" )
+      label(for="comments") Сообщение
+    button(type="submit" value="Submit" class="col-1-4") Отправить
+

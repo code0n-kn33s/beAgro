@@ -1,31 +1,40 @@
 .header
-  background-image: url('../img/lou-liebau-381370-unsplash.png')
+  background-image: url('./img/lou-liebau-381370-unsplash.png')
   height: 694px
   min-height: 200px
   position: relative
   width: 100%
   padding: 0 97px
   @include desktop
-    padding: 0 50px
+    padding: 0 20px
+  @include laptop
+    height: 516px
+  @include mobile
+    padding: 0 10px
 .header-top
   display: flex
   height: 88px
   justify-content: space-between
   align-items: center
+  @include mobile
+    height: 78px
   &-logo
     transform: translateY(-8px)
-  &-toolbar
-    white-space: nowrap
-  &-logo
     width: 99px
     height: 54px
     margin-right: 28px
+    @include mobile
+      margin-right: 12px
+  &-toolbar
+    white-space: nowrap
   &-menu
     display: flex
     align-items: center
     width: 818px
     justify-content: space-between
     margin-left: 30px
+    @include laptop
+      display: none
     &-item
       a
         color: white
@@ -48,12 +57,35 @@
   bottom: 0
   margin: auto
   height: 220px
+  @include tablet
+    height: 127px
+  @include mobile
+    height: 197px
   &-title
     font-size: rem(36)
     line-height: 1.29
+    @include tablet
+      font-size: rem(27)
+    @include mobile
+      font-size: 19px
+      line-height: 1.7
+      br
+        display: none
   &-detailed
     letter-spacing: 1.4px
     margin-top: 36px
+    @include tablet
+      margin-top: 27px
 .icon-facebook
   height: 30px
   width: 30px
+
+#header-dropdown
+  z-index: 2
+#nav-icon2
+  background-color: transparent
+  z-index: 1
+
+  //yet display: NONE
+.header-top-dropdown
+  display: none

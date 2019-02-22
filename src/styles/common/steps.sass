@@ -1,0 +1,55 @@
+.steps
+  &-title
+    font-weight: 700
+    text-align: center
+    font-size: rem(49)
+    margin-bottom: 66px
+    @include tablet
+      font-size: rem(38)
+      margin-bottom: 23px
+  &-list
+    display: flex
+    justify-content: space-between
+    @include tablet
+      flex-direction: column
+  &-item
+    width: 32%
+    @include tablet
+      width: 100%
+    &-top
+      display: flex
+      align-items: center
+      margin-bottom: 15px
+      @include tablet
+        margin-bottom: 10px
+    &-top-id
+      font-size: rem(29)
+      padding: 7px 19px
+      font-weight: 700
+      background-color: $c-dark-green
+      color: #fff
+      margin-right: 10px
+    &-top-solution
+      font-size: rem(22)
+      font-weight: 700
+      @include desktop
+        font-size: rem(17)
+      @include laptop
+        font-size: rem(18)
+    &-bottom
+      border: 1px solid $c-dark-green
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 15px 0
+      margin-bottom: 46px
+      min-height: 321px
+      position: relative
+      @include tablet
+        max-height: 300px
+        margin-bottom: 20px
+      img
+        width: 80%
+        @include tablet
+          max-width: 430px
+          max-height: 300px

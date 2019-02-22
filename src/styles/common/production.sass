@@ -1,0 +1,51 @@
+.production
+  &-title
+    color: #242b23
+    font-size: rem(50)
+    font-weight: 500
+    text-align: center
+    padding: 62px 0 68px
+  &-list
+    display: flex
+    justify-content: space-between
+    text-align: center
+    @include laptop
+      display: block
+  &-item
+    display: inline-block
+    vertical-align: top
+    width: 224px
+    margin-right: 10px
+    @include laptop
+      margin-right: 15px
+    &-description
+      display: flex
+      align-items: center
+      margin-bottom: 7px
+      min-height: 40px
+      @include desktop
+        min-height: 60px
+    &-id
+      min-width: 35px
+      height: 35px
+      line-height: 35px
+      text-align: center
+      font-size: 22px
+      font-weight: 500
+      color: #fff
+      background-color: #498841
+    &-text
+      font-weight: 500
+      font-size: 15px
+      margin-left: 6px
+      text-align: left
+      @include desktop
+        font-size: 14px
+      @include laptop
+        font-size: 16px
+    &-img
+      height: 224px
+      display: flex
+      align-items: center
+      justify-content: center
+      border: 1px solid $c-dark-green

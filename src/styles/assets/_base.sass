@@ -1,10 +1,16 @@
+$baseFont: Montserrat
+$c-primary: #333
+$baseFontSize: 16px
+$container-width: 1150px
+$c-scroll: $c-light-green
+
 html, body
   margin: 0
   padding: 0
 
 body
   font-size: $baseFontSize
-  font-family: 'Monserrat'
+  font-family: $baseFont, sans-serif
   color: $c-primary
   @include laptop
     font-size: 15px
@@ -16,17 +22,19 @@ body
 .container
   width: $container-width
   margin: auto
+  @include desktop
+    width: 935px
   @include laptop
-    width: 980px
+    width: 730px
   @include tablet
-    width: 768px
+    width: 100%
+    padding: 0 18px
   @include mobile
-    width: 480px
+    padding: 0 20px
+
 .icon
   display: inline-block
   user-select: none
   svg, img
     height: 100%
     width: 100%
-.sprites
-  display: none

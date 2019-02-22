@@ -5,28 +5,50 @@
     a.icon.icon-facebook
       svg(style="fill")
         use(xlink:href="#FB_")
-  .header-top-menu
-    .header-top-menu-item
+  ul.header-top-menu
+    li.header-top-menu-item
       a(href="#") О Нас
-    .header-top-menu-item
+    li.header-top-menu-item
       a(href="#") Продукция
-    .header-top-menu-item
+    li.header-top-menu-item
       a(href="#") Использование
-    .header-top-menu-item
+    li.header-top-menu-item
       a(href="#") Преимущества
-    .header-top-menu-item
+    li.header-top-menu-item
       a(href="#") Производство
-    .header-top-menu-item
+    li.header-top-menu-item
       a(href="#") Контакты
-    .header-top-lang.custom-select
-      select(size="3" name="hero")
-        option(value="ru" selected) RU
-        option(value="ua") UA
-        option(value="en") EN
+  .header-top-lang.custom-select
+    select(size="3" name="hero")
+      option(value="ru" selected) RU
+      option(value="ua") UA
+      option(value="en") EN
+  .dropdown.header-top-dropdown
+    input(type="checkbox" id="header-dropdown")
+    a#nav-icon3(href="#" data-toggle="dropdown")
+      span
+      span
+      span
+      span
+    ul.dropdown-menu
+      li
+        a(href="#") О Нас
+      li
+        a(href="#") Продукция
+      li
+        a(href="#") Использование
+      li
+        a(href="#") Преимущества
+      li
+        a(href="#") Производство
+      li
+        a(href="#") Контакты
 .header-bottom
   .header-bottom-title
     | <b>Минераловатный субстрат</b><br>
     | для гидропонного выращивания <br>
     | овощных и цветочных культур
-  button.button.header-bottom-detailed
-    | Подбробнее
+  .header-bottom-detailed
+    a(href="#").anim-btn.effektA
+      | Подбробнее
+
