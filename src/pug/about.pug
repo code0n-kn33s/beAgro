@@ -14,13 +14,18 @@
 					button.button-params 1000 x 150 x 100 мм.
 					button.button-params 1000 x 200 x 100 мм.
 			.goods-item-slider
-				- var slider_1 = [{name: "slider_1", id:'slider_1-item-1', src:'./img/Gallery11 copy 2.png', check: 'checked'}, {name: "slider_1", id:'slider_1-item-2', src:'./img/Gallery12.png',check: ''}, {name: "slider_1", id:'slider_1-item-3',src:'./img/Gallery1 copy.png', check: ''}]
-				.slider
-					each sliderItems in slider_1
-						input(type="radio" name=`${sliderItems.name}` id=`${sliderItems.id}` checked)
-						label(for=`${sliderItems.id}`)
-							img(src=`${sliderItems.src}` width="100")
-						img(src=`${sliderItems.src}`)
+				div(class="slider")
+					div(class="feature")
+						figure(class="featured-item image-holder r-3-2 transition")
+						div(class="gallery")
+							div(class="item-wrapper")
+								figure(class="gallery-item image-holder r-3-2 active transition")
+							div(class="item-wrapper")
+								figure(class="gallery-item image-holder r-3-2 transition")
+							div(class="item-wrapper")
+								figure(class="gallery-item image-holder r-3-2 transition")
+						button(class="move-btn left") &#10092;
+						button(class="move-btn right") &#10093;
 
 		.goods-list-item
 			.goods-item-description
@@ -35,13 +40,18 @@
 					button.button-params 150 x 100 x 65 мм.
 					button.button-params 75 x 75 x 65 мм.
 			.goods-item-slider
-				- var slider_2 = [{name: "slider_2", id:'slider_2-item-1', src:'./img/Gallery1 copy.png', check: 'checked'}, {name: "slider_2", id:'slider_2-item-2', src:'./img/Gallery12.png',check: ''}, {name: "slider_2", id:'slider_2-item-3',src:'./img/Gallery11 copy 2.png', check: ''}]
-				.slider
-					each sliderItems in slider_2
-						input(type="radio" name=`${sliderItems.name}` id=`${sliderItems.id}` checked)
-						label(for=`${sliderItems.id}`)
-							img(src=`${sliderItems.src}` width="100")
-						img(src=`${sliderItems.src}`)
+				div(class="slider")
+					div(class="feature")
+						figure(class="featured-item image-holder r-3-2 transition")
+						div(class="gallery")
+							div(class="item-wrapper")
+								figure(class="gallery-item image-holder r-3-2 active transition")
+							div(class="item-wrapper")
+								figure(class="gallery-item image-holder r-3-2 transition")
+							div(class="item-wrapper")
+								figure(class="gallery-item image-holder r-3-2 transition")
+						button(class="move-btn left") &#10092;
+						button(class="move-btn right") &#10093;
 
 		.goods-list-item
 			.goods-item-description
@@ -53,10 +63,15 @@
 					span Размеры:
 					button.button-params 20 x 27 мм.
 			.goods-item-slider
-				- var slider_3 = [{name: "slider_3", id:'slider_3-item-1', src:'./img/Gallery1 copy.png', check: 'checked'}, {name: "slider_3", id:'slider_3-item-2', src:'./img/Gallery11 copy 2.png',check: ''}, {name: "slider_3", id:'slider_3-item-3',src:'./img/Gallery12.png', check: ''}]
-				.slider
-					each sliderItems in slider_3
-						input(type="radio" name=`${sliderItems.name}` id=`${sliderItems.id}` checked)
-						label(for=`${sliderItems.id}`)
-							img(src=`${sliderItems.src}` width="100")
-						img(src=`${sliderItems.src}`)
+				div(class="slider")
+					div(class="feature")
+						figure(class="featured-item image-holder r-3-2 transition")
+						div(class="gallery")
+							div(class="item-wrapper")
+								figure(class="gallery-item image-holder r-3-2 active transition")
+							div(class="item-wrapper")
+								figure(class="gallery-item image-holder r-3-2 transition")
+							div(class="item-wrapper")
+								figure(class="gallery-item image-holder r-3-2 transition")
+						button(class="move-btn left") &#10092;
+						button(class="move-btn right") &#10093;

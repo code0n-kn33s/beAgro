@@ -1,7 +1,8 @@
+var slider = document.querySelector('.slider');
 var gallery = document.querySelector('.gallery');
 var galleryItems = document.querySelectorAll('.gallery-item');
 var numOfItems = gallery.children.length;
-var itemWidth = 10; // percent: as set in css
+var itemWidth = 24;
 
 var featured = document.querySelector('.featured-item');
 
@@ -31,14 +32,14 @@ function galleryWrapLeft() {
   gallery.removeChild(first);
   gallery.style.left = -itemWidth + '%';
   gallery.appendChild(first);
-  gallery.style.left = '0%';
+  gallery.style.left = '100%';
 }
 
 function galleryWrapRight() {
   var last = gallery.children[gallery.children.length - 1];
   gallery.removeChild(last);
   gallery.insertBefore(last, gallery.children[0]);
-  gallery.style.left = '-23%';
+  gallery.style.left = '100%';
 }
 
 function moveLeft() {
@@ -61,7 +62,7 @@ function moveRight() {
   if (left > -itemWidth && left < 0) {
     left = left - itemWidth;
 
-    var last = gallery.children[gallery.children.length - 1];
+    var last = gallery.children[gallery.children.length];
     gallery.removeChild(last);
     gallery.style.left = left + '%';
     gallery.insertBefore(last, gallery.children[0]);
@@ -95,16 +96,12 @@ rightBtn.addEventListener('mouseleave', stopMovement);
 //Start this baby up
 (function init() {
   var images = [
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg',
+    // './img/gallery-1.png',
+    // './img/gallery-2.png',
+    // './img/gallery-3.png'
     'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg',
     'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg',
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg',
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/food.jpg',
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg',
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg',
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg',
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg',
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg'
+    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg'
   ];
 
   //Set Initial Featured Image
