@@ -1,115 +1,77 @@
-var slider = document.querySelector('.slider');
-var gallery = document.querySelector('.gallery');
-var galleryItems = document.querySelectorAll('.gallery-item');
-var numOfItems = gallery.children.length;
-var itemWidth = 24;
+class Slider {
+  constructor(target) {
+    this.slider = target;
+    this.gallery = this.slider.querySelector('.gallery');
+    this.galleryItems = this.slider.querySelectorAll('.gallery-item');
+    this.itemWidth = 24;
 
-var featured = document.querySelector('.featured-item');
+    this.featured = this.slider.querySelector('.featured-item');
+    this.leftBtn = this.slider.querySelector('.move-btn.left');
+    this.rightBtn = this.slider.querySelector('.move-btn.right');
 
-var leftBtn = document.querySelector('.move-btn.left');
-var rightBtn = document.querySelector('.move-btn.right');
-var leftInterval;
-var rightInterval;
-
-var scrollRate = 0.2;
-var left;
-
-function selectItem(e) {
-  if (e.target.classList.contains('active')) return;
-
-  featured.style.backgroundImage = e.target.style.backgroundImage;
-
-  for (var i = 0; i < galleryItems.length; i++) {
-    if (galleryItems[i].classList.contains('active'))
-      galleryItems[i].classList.remove('active');
+    this.init()
   }
+  setBg(item) {
+    let background = item.querySelector('figure').style.backgroundImage
 
-  e.target.classList.add('active');
-}
+    this.featured.style.backgroundImage = background
+  }
+  selectItem(e) {
+    let currentEl = e.target.parentElement
 
-function galleryWrapLeft() {
-  var first = gallery.children[0];
-  gallery.removeChild(first);
-  gallery.style.left = -itemWidth + '%';
-  gallery.appendChild(first);
-  gallery.style.left = '100%';
-}
+    if (currentEl.classList.contains('active')) return;
 
-function galleryWrapRight() {
-  var last = gallery.children[gallery.children.length - 1];
-  gallery.removeChild(last);
-  gallery.insertBefore(last, gallery.children[0]);
-  gallery.style.left = '100%';
-}
+    this.setBg(currentEl)
 
-function moveLeft() {
-  left = left || 0;
-
-  leftInterval = setInterval(function () {
-    gallery.style.left = left + '%';
-
-    if (left > -itemWidth) {
-      left -= scrollRate;
-    } else {
-      left = 0;
-      galleryWrapLeft();
+    for (let i = 0; i < this.galleryItems.length; i++) {
+      if (this.galleryItems[i].classList.contains('active'))
+        this.galleryItems[i].classList.remove('active');
     }
-  }, 1);
-}
 
-function moveRight() {
-  //Make sure there is element to the leftd
-  if (left > -itemWidth && left < 0) {
-    left = left - itemWidth;
-
-    var last = gallery.children[gallery.children.length];
-    gallery.removeChild(last);
-    gallery.style.left = left + '%';
-    gallery.insertBefore(last, gallery.children[0]);
+    currentEl.classList.toggle('active');
   }
+  slideLeft(e) {
+    let nextElem = this.gallery.querySelector('.active').previousElementSibling
+    let lastElem = this.gallery.lastChild
+    let currentEl = this.gallery.querySelector('.active')
 
-  left = left || 0;
+    currentEl.classList.remove('active')
 
-  leftInterval = setInterval(function () {
-    gallery.style.left = left + '%';
-
-    if (left < 0) {
-      left += scrollRate;
+    if(nextElem !== null) {
+      nextElem.classList.add('active')
+      this.setBg(nextElem)
     } else {
-      left = -itemWidth;
-      galleryWrapRight();
+      lastElem.classList.add('active')
+      this.setBg(lastElem)
     }
-  }, 1);
-}
 
-function stopMovement() {
-  clearInterval(leftInterval);
-  clearInterval(rightInterval);
-}
-
-leftBtn.addEventListener('mouseenter', moveLeft);
-leftBtn.addEventListener('mouseleave', stopMovement);
-rightBtn.addEventListener('mouseenter', moveRight);
-rightBtn.addEventListener('mouseleave', stopMovement);
-
-
-//Start this baby up
-(function init() {
-  var images = [
-    // './img/gallery-1.png',
-    // './img/gallery-2.png',
-    // './img/gallery-3.png'
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg',
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg',
-    'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg'
-  ];
-
-  //Set Initial Featured Image
-  featured.style.backgroundImage = 'url(' + images[0] + ')';
-
-  //Set Images for Gallery and Add Event Listeners
-  for (var i = 0; i < galleryItems.length; i++) {
-    galleryItems[i].style.backgroundImage = 'url(' + images[i] + ')';
-    galleryItems[i].addEventListener('click', selectItem);
+    e.stopPropagation()
   }
-})();
+  slideRight(e) {
+    let prevElem = this.gallery.querySelector('.active').nextElementSibling
+    let firstElem = this.gallery.firstChild
+    let currentEl = this.gallery.querySelector('.active')
+
+    currentEl.classList.remove('active')
+
+    if (prevElem !== null) {
+      prevElem.classList.add('active')
+      this.setBg(prevElem)
+    } else {
+      firstElem.classList.add('active')
+      this.setBg(firstElem)
+    }
+
+    e.stopPropagation()
+  }
+  init() {
+    this.setBg(this.galleryItems[0])
+    this.leftBtn.addEventListener('click', this.slideLeft.bind(this) )
+    this.rightBtn.addEventListener('click', this.slideRight.bind(this) )
+    this.galleryItems.forEach( slide => slide.addEventListener('click', this.selectItem.bind(this)) )
+  }
+}
+
+new Slider(document.querySelector('#slider1'))
+new Slider(document.querySelector('#slider2'))
+new Slider(document.querySelector('#slider3'))
