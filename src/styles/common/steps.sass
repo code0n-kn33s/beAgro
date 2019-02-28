@@ -7,6 +7,11 @@
     @include tablet
       font-size: rem(38)
       margin-bottom: 23px
+    &-content
+      @include tablet
+        font-size: rem(38)
+      @include mobile
+        font-size: rem(28)
   &-list
     display: flex
     justify-content: space-between
@@ -26,16 +31,22 @@
       font-size: rem(29)
       padding: 7px 19px
       font-weight: 700
-      background-color: $c-dark-green
-      color: #fff
+      color: white
       margin-right: 10px
     &-top-solution
       font-size: rem(22)
       font-weight: 700
+      color: white
+      overflow: hidden
+      span
+        transform: translateX(-100%)
+        position: relative
       @include desktop
         font-size: rem(17)
       @include laptop
         font-size: rem(18)
+    &-bottom-wrap
+      overflow: hidden
     &-bottom
       border: 1px solid $c-dark-green
       display: flex
@@ -45,6 +56,7 @@
       margin-bottom: 46px
       min-height: 321px
       position: relative
+      transform: translateY(-100%)
       @include tablet
         max-height: 300px
         margin-bottom: 20px

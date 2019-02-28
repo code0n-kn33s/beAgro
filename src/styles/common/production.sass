@@ -2,9 +2,15 @@
   &-title
     color: #242b23
     font-size: rem(50)
-    font-weight: 500
+    font-weight: 600
     text-align: center
-    padding: 62px 0 68px
+    padding: 24px 0 35px
+    &-content
+      font-size: rem(50)
+      @include laptop
+        font-size: rem(38)
+      @include mobile
+        font-size: rem(28)
   &-list
     display: flex
     justify-content: space-between
@@ -33,19 +39,24 @@
       font-size: 22px
       font-weight: 500
       color: #fff
-      background-color: #498841
     &-text
-      font-weight: 500
-      font-size: 15px
+      font-weight: 700
+      font-size: 14px
       margin-left: 6px
       text-align: left
-      @include desktop
-        font-size: 14px
+      overflow: hidden
       @include laptop
         font-size: 16px
+      span
+        color: white
+        transform: translateX(-100%)
+    &-img-wrap
+      overflow: hidden
     &-img
       height: 224px
       display: flex
       align-items: center
       justify-content: center
       border: 1px solid $c-dark-green
+      transform: translateY(-100%)
+      position: relative
