@@ -741,6 +741,10 @@ ul.header-top-menu a {
   transform: translateY(4px)
 }
 
+.header-bottom-text-wrapper {
+  overflow: hidden;
+}
+
 ul.header-top-menu a:after, ul.header-top-menu a:before {
   content: "";
   position: absolute;
@@ -1895,6 +1899,7 @@ a.anim-btn.effektA:after {
     padding: 0 126px 14px 24px
   }
 }
+
 @media (max-width:768px) {
   .geography-title {
     padding: 0
